@@ -13,7 +13,7 @@ BITMAPINFOHEADER Info;
 vector<RGBQUAD> Palette;
 
 int main() {
-    ifstream file("C:\\Users\\argon\\Desktop\\ПГИ\\CAT256.bmp", ios_base::in | ios_base::binary);
+    ifstream file("CAT256.bmp", ios_base::in | ios_base::binary);
     file.read((char*)&Header, sizeof(Header));
     file.read((char*)&Info, sizeof(Info));
     while (file.tellg() != Header.bfOffBits) {
@@ -29,7 +29,7 @@ int main() {
     Info.biWidth = Info.biHeight;
     Info.biHeight = A;
 
-    ofstream out("C:\\Users\\argon\\Desktop\\ПГИ\\result3.BMP", ios_base::out | ios_base::binary);
+    ofstream out("result.BMP", ios_base::out | ios_base::binary);
     out.write((char*)&Header, sizeof(BITMAPFILEHEADER));
     out.write((char*)&Info, sizeof(BITMAPINFOHEADER));
     for (auto& i : Palette) {
